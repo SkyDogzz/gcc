@@ -31,6 +31,22 @@ skydogzzz/gcc:13-bookworm
 
 Run these in the same folder as your project or change the $(pwd) to your project path.
 
+### Tips
+
+Consider creating aliases in your shell rc file
+
+```bash
+alias gcc12='docker run -it -v "$(pwd)":/workspace -e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" -e HOST_USER="$(whoami)" skydogzzz/gcc:12-bookworm'
+alias gcc13='docker run -it -v "$(pwd)":/workspace -e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" -e HOST_USER="$(whoami)" skydogzzz/gcc:13-bookworm'
+```
+
+Then just use them as follow:
+
+```bash
+gcc12
+gcc13
+```
+
 ### Warning
 
 Don't touch HOST_UID / HOST_GID / HOST_USER unless you know what you're doing
